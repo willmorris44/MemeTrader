@@ -16,6 +16,7 @@ enum Errors: Error {
     case unwrapResults
     case unwrapSnapshot
     case decodeMeme
+    case decodeUser
 }
 
 extension Errors: LocalizedError {
@@ -34,6 +35,8 @@ extension Errors: LocalizedError {
             return NSLocalizedString("Couldn't unwrap snapshot", comment: "")
         case .decodeMeme:
             return NSLocalizedString("Couldn't decode data into meme", comment: "")
+        case .decodeUser:
+            return NSLocalizedString("Couldn't decode data into user", comment: "")
         }
     }
 }

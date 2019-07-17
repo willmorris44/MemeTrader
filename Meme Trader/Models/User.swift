@@ -6,7 +6,7 @@
 //  Copyright © 2019 Will morris. All rights reserved.
 //
 
-import Foundation
+import UIKit
 import Firebase
 
 struct User {
@@ -16,6 +16,7 @@ struct User {
     var name: String
     var bio: String
     var picUrl: String
+    var avi: UIImage?
     var date: Date
     var cash: Double
     var portfolioValue: Double

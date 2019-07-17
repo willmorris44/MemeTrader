@@ -6,7 +6,7 @@
 //  Copyright © 2019 Will morris. All rights reserved.
 //
 
-import Foundation
+import UIKit
 import Firebase
 
 struct Meme {
@@ -15,6 +15,7 @@ struct Meme {
     var memeUID: String
     var caption: String
     var picUrl: String
+    var image: UIImage?
     var date: Date
     var upvotes: Double
     var downvotes: Double

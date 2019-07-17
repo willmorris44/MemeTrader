@@ -12,7 +12,12 @@ class AddProfilePictureViewController: UIViewController, UINavigationControllerD
     
     let imagePicker = UIImagePickerController()
     
+    var tag: String?
+    var name: String?
+    var bio: String?
+    
     @IBOutlet weak var profilePic: UIImageView!
+    @IBOutlet weak var nextButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +34,15 @@ class AddProfilePictureViewController: UIViewController, UINavigationControllerD
         }
     }
     
+    @IBAction func skipButtonTapped(_ sender: Any) {
+        profilePic.image = UIImage(named: "defaultProfilePic")
+        performSegue(withIdentifier: "toThisIsYou", sender: self)
+    }
+    
+    @IBAction func nextButtonTapped(_ sender: Any) {
+        performSegue(withIdentifier: "toThisIsYou", sender: self)
+    }
+    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             profilePic.contentMode = .scaleAspectFill
@@ -38,22 +52,25 @@ class AddProfilePictureViewController: UIViewController, UINavigationControllerD
     }
     
     func setupUI() {
+        let green = UIColor(displayP3Red: 76/255, green: 217/255, blue: 100/255, alpha: 1)
         
         profilePic.layer.borderWidth = 1
         profilePic.layer.masksToBounds = false
-        profilePic.layer.borderColor = nil
+        profilePic.layer.borderColor = green.cgColor
         profilePic.layer.cornerRadius = profilePic.frame.height/2
         profilePic.clipsToBounds = true
     }
 
-    /*
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        
+        if segue.identifier == "toThisIsYou" {
+            guard let destinationVC = segue.destination as? ThisIsYouViewController else { return }
+            destinationVC.pic = profilePic.image
+            destinationVC.tag = tag
+            destinationVC.name = name
+            destinationVC.bio = bio
+        }
     }
-    */
-
 }

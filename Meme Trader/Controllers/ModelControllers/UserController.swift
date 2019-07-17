@@ -6,8 +6,9 @@
 //  Copyright © 2019 Will morris. All rights reserved.
 //
 
-import Foundation
+import UIKit
 import Firebase
+import FirebaseStorage
 
 class UserController {
     
@@ -15,7 +16,13 @@ class UserController {
     
     static let shared = UserController()
     
+    static var currentUser: User?
+    
     lazy var db = Firestore.firestore()
+    
+    lazy var storageRef = StorageReference()
+    
+    var userDic: [String: User] = [:]
     
     // MARK: - Methods
     
@@ -47,13 +54,46 @@ class UserController {
         
     }
     
+    func uploadProfilePicWith(image: UIImage, userUID: String, completion: @escaping (String?, Error?) -> Void) {
+        guard let data = image.pngData() else { return }
+        let ref = storageRef.child("images/profilePic/\(userUID).png")
+        ref.putData(data, metadata: nil) { (_, error) in
+            if let error = error {
+                print("Error uploading image: \(error) : \(error.localizedDescription): \(#function)")
+                completion(nil, error)
+                return
+            }
+            
+            ref.downloadURL { (url, error) in
+                if let error = error {
+                    print("Error getting url: \(error) : \(error.localizedDescription) : \(#function)")
+                    completion(nil, error)
+                    return
+                }
+                
+                guard let url = url?.absoluteString else { return }
+                completion(url, nil)
+            }
+        }
+    }
+    
     func updateUserInfoWith(tag: String, name: String, bio: String, picUrl: String, completion: @escaping (Error?) -> Void) {
         guard let currentUser = Auth.auth().currentUser else { print(#function); completion(Errors.noCurrentUser); return }
-        db.collection("users").document(currentUser.uid).setData([
+        db.collection("users").document(currentUser.uid).updateData([
             "tag" : tag,
             "name" : name,
             "bio" : bio,
             "picUrl" : picUrl,
+            "cash" : 0.0,
+            "portfolioValue" : 0.0,
+            "networth" : 0.0,
+            "investments" : [],
+            "memes" : [],
+            "comments" : [],
+            "memesUpvoted" : [],
+            "memesDownvoted" : [],
+            "commentsUpvoted" : [],
+            "commentsDownvoted" : []
         ]) { (error) in
             if let error = error {
                 print("There was an error adding user info: \(error) : \(error.localizedDescription) : \(#function)")
@@ -62,6 +102,22 @@ class UserController {
             }
         }
         completion(nil)
+    }
+    
+    func checkUserTagWith(tag: String, completion: @escaping (Bool, Error?) -> Void) {
+        db.collection("users").whereField("tag", isEqualTo: tag).getDocuments { (snapshot, error) in
+            if let error = error {
+                print("There was an error checking user tag: \(error) : \(error.localizedDescription) : \(#function)")
+                completion(false, error)
+                return
+            }
+            
+            guard let snapshot = snapshot,
+                snapshot.documents.count == 0
+                else { print(#function); completion(false, Errors.unwrapSnapshot); return }
+            
+            completion(true, nil)
+        }
     }
     
     func updateUserCommentsWith(comment: String, completion: @escaping (Error?) -> Void) {
@@ -188,6 +244,53 @@ class UserController {
             }
         }
         completion(nil)
+    }
+    
+    func fetchUserWith(uid: String, memeUID: String, completion: @escaping (User?, Error?) -> Void) {
+        db.collection("users").document(uid).getDocument { (snapshot, error) in
+            if let error = error {
+                print("There was an error fetching the user with uid: \(error) : \(error.localizedDescription) : \(#function)")
+                completion(nil, error)
+                return
+            }
+            
+            guard let data = snapshot?.data() else { print(#function); completion(nil, Errors.unwrapSnapshot); return }
+            guard let docID = snapshot?.documentID else { print(#function); completion(nil, Errors.unwrapDocumentID); return }
+            guard var user = User(from: data, uid: docID) else { print(#function); completion(nil, Errors.decodeUser); return }
+            
+            let pathRef = self.storageRef.child("images/profilePic/\(user.userUID).png")
+            pathRef.getData(maxSize: 1 * 1024 * 1024, completion: { (data, error) in
+                if let error = error {
+                    print("There was an error downloading avi: \(error) : \(error.localizedDescription) : \(#function)")
+                    completion(nil, error)
+                    return
+                }
+                
+                guard let data = data else { return }
+                let image = UIImage(data: data)
+                user.avi = image
+            })
+            self.userDic[memeUID] = user
+            completion(user, nil)
+        }
+    }
+    
+    func getCurrentUser(completion: @escaping (Error?) -> Void) {
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        db.collection("users").document(uid).addSnapshotListener { (snapshot, error) in
+            if let error = error {
+                print("There was an error getting current user: \(error) : \(error.localizedDescription) : \(#function)")
+                completion(error)
+                return
+            }
+            
+            guard let snapshot = snapshot,
+                let data = snapshot.data()
+                else { print(#function); completion(Errors.unwrapSnapshot); return }
+            
+            let user = User(from: data, uid: snapshot.documentID)
+            UserController.currentUser = user
+        }
     }
     
     func signInUserWith(email: String, password: String, completion: @escaping (Error?) -> Void) {

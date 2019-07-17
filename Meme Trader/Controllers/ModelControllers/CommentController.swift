@@ -87,7 +87,7 @@ class CommentController {
     
     func fetchCommentsFromFirestoreFor(meme: Meme?, completion: @escaping (Error?) -> Void) {
         if let meme = meme {
-            db.collection("comments").whereField("memeUID", isEqualTo: meme.memeUID).getDocuments { (snapshot, error) in
+            db.collection("comments").whereField("memeUID", isEqualTo: meme.memeUID).addSnapshotListener({ (snapshot, error) in
                 if let error = error {
                     print("There was an error fetching meme comments: \(error) : \(error.localizedDescription) : \(#function)")
                     completion(error)
@@ -99,11 +99,11 @@ class CommentController {
                     else { print(#function); completion(Errors.unwrapSnapshot); return }
                 
                 self.commentsDic["meme"] = snapshot.documents.compactMap { Comment(from: $0.data(), uid: $0.documentID) }
-            }
+            })
         } else {
             guard let currentUser = Auth.auth().currentUser else { print(#function); completion(Errors.noCurrentUser); return }
             
-            db.collection("comments").whereField("userUID", isEqualTo: currentUser.uid).getDocuments { (snapshot, error) in
+            db.collection("comments").whereField("userUID", isEqualTo: currentUser.uid).addSnapshotListener({ (snapshot, error) in
                 if let error = error {
                     print("There was an error fetching user comments: \(error) : \(error.localizedDescription) : \(#function)")
                     completion(error)
@@ -115,7 +115,8 @@ class CommentController {
                     else { print(#function); completion(Errors.unwrapSnapshot); return }
                 
                 self.commentsDic["user"] = snapshot.documents.compactMap { Comment(from: $0.data(), uid: $0.documentID) }
-            }
+            })
         }
+        completion(nil)
     }
 }
