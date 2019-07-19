@@ -102,7 +102,7 @@ class UserController {
             "name" : name,
             "bio" : bio,
             "picUrl" : picUrl,
-            "cash" : 0.0,
+            "cash" : 10000.0,
             "portfolioValue" : 0.0,
             "networth" : 0.0,
             "investments" : [],
@@ -322,10 +322,25 @@ class UserController {
                 let data = snapshot.data()
                 else { print(#function); completion(Errors.unwrapSnapshot); return }
             
-            let user = User(from: data, uid: snapshot.documentID)
-            UserController.currentUser = user
+            guard var user = User(from: data, uid: snapshot.documentID) else { completion(Errors.decodeUser); return }
+            
+            let pathRef = self.storageRef.child("images/profilePic/\(uid).png")
+            pathRef.getData(maxSize: 1 * 1024 * 1024, completion: { (data, error) in
+                if let error = error {
+                    print("There was an error downloading avi: \(error) : \(error.localizedDescription) : \(#function)")
+                    completion(error)
+                    return
+                }
+                
+                guard let data = data,
+                    let image = UIImage(data: data)
+                    else { completion(Errors.unwrapData); return }
+                
+                user.avi = image
+                UserController.currentUser = user
+                completion(nil)
+            })
         }
-        completion(nil)
     }
     
     func signInUserWith(email: String, password: String, completion: @escaping (Error?) -> Void) {

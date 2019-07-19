@@ -21,15 +21,33 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var moneyLabel: UILabel!
     @IBOutlet weak var postsView: UIView!
     @IBOutlet weak var commentsView: UIView!
+    @IBOutlet weak var segCon: UISegmentedControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupUI()
+        commentsView.isHidden = true
+    }
+    
+    @IBAction func segConTapped(_ sender: Any) {
+        if segCon.selectedSegmentIndex == 1 {
+            postsView.isHidden = true
+            commentsView.isHidden = false
+        } else {
+            postsView.isHidden = false
+            commentsView.isHidden = true
+        }
+        
     }
     
     @IBAction func editButtonTapped(_ sender: Any) {
     }
     
     func setupUI() {
+        self.navigationController?.navigationBar.isHidden = true
+        
+        sizeAvi()
+                
         guard let name = currentUser?.name,
             let tag = currentUser?.tag,
             let bio = currentUser?.bio,
@@ -41,8 +59,31 @@ class ProfileViewController: UIViewController {
         tagLabel.text = tag
         bioLabel.text = bio
         moneyLabel.text = "$\(money)"
-        aviImageView.image = avi
+        aviImageView.image = resize(image: avi)
+        headerImageView.image = UIImage(named: "defaultProfilePic")
         
+    }
+    
+    func sizeAvi() {
+        aviImageView.layer.borderWidth = 2.5
+        aviImageView.layer.borderColor = UIColor.white.cgColor
+        aviImageView.layer.masksToBounds = false
+        aviImageView.layer.cornerRadius = aviImageView.frame.height/2
+        aviImageView.clipsToBounds = true
+        aviImageView.contentMode = .scaleAspectFill
+    }
+    
+    func resize(image: UIImage) -> UIImage? {
+        let oldWidth = image.size.width
+        let newWidth = UIScreen.main.bounds.width
+        let scalor = newWidth / oldWidth
+        let newHeight = image.size.height * scalor
+        UIGraphicsBeginImageContext(CGSize(width: newWidth, height: newHeight))
+        image.draw(in: CGRect(x: 0, y: 0, width: newWidth, height: newHeight))
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return newImage
     }
     
     /*

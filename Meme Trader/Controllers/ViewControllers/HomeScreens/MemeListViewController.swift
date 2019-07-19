@@ -69,8 +69,14 @@ class MemeListViewController: UIViewController, UITableViewDelegate, UITableView
             else { return UITableViewCell() }
         
         let meme = memeArray[indexPath.row]
+        cell?.view.layer.cornerRadius = 25
+        cell?.view.layer.masksToBounds = true
+        cell?.shadow.layer.cornerRadius = 25
+        cell?.percentChangedLabel.layer.cornerRadius = 4
+        cell?.percentChangedLabel.layer.masksToBounds = true
         cell?.memeImageView.image = meme.image
         cell?.meme = meme
+        cell?.delegate = self
         
         return cell ?? UITableViewCell()
     }
@@ -107,11 +113,13 @@ extension MemeListViewController: MemeTableViewCellDelegate {
     
     func optionButtonTapped() {
         let alert = UIAlertController(title: "Options", message: nil, preferredStyle: .actionSheet)
-        let report = UIAlertAction(title: "Report", style: .cancel, handler: nil)
-        let block = UIAlertAction(title: "Block", style: .cancel, handler: nil)
+        let report = UIAlertAction(title: "Report", style: .destructive, handler: nil)
+        let block = UIAlertAction(title: "Block", style: .destructive, handler: nil)
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         
         alert.addAction(report)
         alert.addAction(block)
+        alert.addAction(cancel)
         present(alert, animated: true)
     }
 }

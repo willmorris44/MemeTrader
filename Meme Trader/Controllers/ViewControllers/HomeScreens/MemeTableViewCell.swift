@@ -29,6 +29,8 @@ class MemeTableViewCell: UITableViewCell {
     @IBOutlet weak var sellButton: UIButton!
     @IBOutlet weak var fundButton: UIButton!
     @IBOutlet weak var coinImageView: UIImageView!
+    @IBOutlet weak var view: UIView!
+    @IBOutlet weak var shadow: UIView!
     
     weak var delegate: MemeTableViewCellDelegate?
     
