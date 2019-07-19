@@ -67,7 +67,7 @@ class CommentController {
                     return
                 }
             }
-        } else {
+        } else if downvoted {
             db.collection("comments").document(comment.commentUID).updateData([
                 "votes" : FieldValue.increment(-1.0)
             ]) { (error) in
@@ -78,6 +78,7 @@ class CommentController {
                 }
             }
         }
+        
         completion(nil)
     }
     

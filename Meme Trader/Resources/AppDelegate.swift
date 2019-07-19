@@ -33,11 +33,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         AppDelegate.darkMode = defaults.bool(forKey: "darkMode")
 
-        do {
-            try Auth.auth().signOut()
-        } catch {
-            print("There was an error signing the user out: \(error) : \(error.localizedDescription) : \(#function)")
-        }
+//        do {
+//            try Auth.auth().signOut()
+//        } catch {
+//            print("There was an error signing the user out: \(error) : \(error.localizedDescription) : \(#function)")
+//        }
         
         return true
     }

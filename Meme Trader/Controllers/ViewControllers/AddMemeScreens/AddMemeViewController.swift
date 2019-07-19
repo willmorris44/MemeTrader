@@ -22,14 +22,23 @@ class AddMemeViewController: UIViewController, UINavigationControllerDelegate, U
     }
     
     @IBAction func uploadButtonTapped(_ sender: Any) {
+        uploadButton.isEnabled = false
         guard let image = memeImageView.image else { return }
         MemeController.shared.createMemeWith(caption: captionTextView.text, image: image) { (error) in
             if let error = error {
                 print("There was an error creating the meme: \(error) : \(error.localizedDescription) : \(#function)")
+                self.uploadButton.isEnabled = true
                 return
             }
             
-            self.navigationController?.popViewController(animated: true)
+            MemeController.shared.fetchMemesFromFirestoreWith(filter: AppDelegate.filter!, completion: { (error) in
+                if let error = error {
+                    print(error)
+                    self.uploadButton.isEnabled = true
+                    return
+                }
+                self.navigationController?.popViewController(animated: true)
+            })
         }
     }
     

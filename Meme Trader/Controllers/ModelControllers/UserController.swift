@@ -54,8 +54,26 @@ class UserController {
         
     }
     
+    func resize(image: UIImage) -> UIImage? {
+        let oldWidth = image.size.width
+        let newWidth = UIScreen.main.bounds.width
+        let scalor = newWidth / oldWidth
+        let newHeight = image.size.height * scalor
+        UIGraphicsBeginImageContext(CGSize(width: newWidth, height: newHeight))
+        image.draw(in: CGRect(x: 0, y: 0, width: newWidth, height: newHeight))
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return newImage
+    }
+    
     func uploadProfilePicWith(image: UIImage, userUID: String, completion: @escaping (String?, Error?) -> Void) {
-        guard let data = image.pngData() else { return }
+        let newImage = resize(image: image)
+        
+        guard let image = newImage,
+            let data = image.pngData()
+            else { return }
+        
         let ref = storageRef.child("images/profilePic/\(userUID).png")
         ref.putData(data, metadata: nil) { (_, error) in
             if let error = error {
@@ -178,11 +196,23 @@ class UserController {
         completion(nil)
     }
     
-    func updateUserMemeVotesWith(meme: Meme, upvoted: Bool, downvoted: Bool, completion: @escaping (Error?) -> Void) {
+    func updateUserMemeVotesWith(meme: Meme, upvoted: Bool?, downvoted: Bool?, completion: @escaping (Error?) -> Void) {
         guard let currentUser = Auth.auth().currentUser else { print(#function); completion(Errors.noCurrentUser); return }
-        if upvoted {
+        if upvoted == true{
             db.collection("users").document(currentUser.uid).updateData([
-                "memesUpvoted" : FieldValue.arrayUnion([meme.memeUID])
+                "memesUpvoted" : FieldValue.arrayUnion([meme.memeUID]),
+                "memesDownvoted" : FieldValue.arrayRemove([meme.memeUID])
+            ]) { (error) in
+                if let error = error {
+                    print("There was an error updating user votes: \(error) : \(error.localizedDescription) : \(#function)")
+                    completion(error)
+                    return
+                }
+            }
+        } else if downvoted == true {
+            db.collection("users").document(currentUser.uid).updateData([
+                "memesDownvoted" : FieldValue.arrayUnion([meme.memeUID]),
+                "memesUpvoted" : FieldValue.arrayRemove([meme.memeUID])
             ]) { (error) in
                 if let error = error {
                     print("There was an error updating user votes: \(error) : \(error.localizedDescription) : \(#function)")
@@ -192,7 +222,8 @@ class UserController {
             }
         } else {
             db.collection("users").document(currentUser.uid).updateData([
-                "memesDownvoted" : FieldValue.arrayUnion([meme.memeUID])
+                "memesUpvoted" : FieldValue.arrayRemove([meme.memeUID]),
+                "memesDownvoted" : FieldValue.arrayRemove([meme.memeUID])
             ]) { (error) in
                 if let error = error {
                     print("There was an error updating user votes: \(error) : \(error.localizedDescription) : \(#function)")
@@ -266,12 +297,15 @@ class UserController {
                     return
                 }
                 
-                guard let data = data else { return }
-                let image = UIImage(data: data)
-                user.avi = image
+                guard let data = data,
+                    let image = UIImage(data: data)
+                    else { return }
+                
+                let newImage = self.resize(image: image)
+                user.avi = newImage
+                self.userDic[memeUID] = user
+                completion(user, nil)
             })
-            self.userDic[memeUID] = user
-            completion(user, nil)
         }
     }
     
@@ -291,6 +325,7 @@ class UserController {
             let user = User(from: data, uid: snapshot.documentID)
             UserController.currentUser = user
         }
+        completion(nil)
     }
     
     func signInUserWith(email: String, password: String, completion: @escaping (Error?) -> Void) {

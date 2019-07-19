@@ -66,9 +66,16 @@ class ThisIsYouViewController: UIViewController {
                     self.finishButton.isEnabled = true
                     return
                 }
-                let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-                let viewController = mainStoryboard.instantiateViewController(withIdentifier: "tabBarController") as! UITabBarController
-                UIApplication.shared.keyWindow?.rootViewController = viewController
+                UserController.shared.getCurrentUser(completion: { (error) in
+                    if let error = error {
+                        print("Error getting current user: \(error) : \(#function)")
+                        return
+                    }
+                    
+                    let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                    let viewController = mainStoryboard.instantiateViewController(withIdentifier: "tabBarController") as! UITabBarController
+                    UIApplication.shared.keyWindow?.rootViewController = viewController
+                })
             }
         }
     }

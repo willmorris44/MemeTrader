@@ -39,10 +39,10 @@ class MemeDetailViewController: UIViewController {
             let user = UserController.shared.userDic[meme.memeUID]
             else { return }
         
-        profilePicImageView.image = user.avi
-        profileNameLabel.text = user.name
-        profileTagLabel.text = user.tag
-        memeImageView.image = meme.image
-        captionLabel.text = meme.caption
+        //profilePicImageView.image = user.avi
+//        profileNameLabel.text = user.name
+//        profileTagLabel.text = user.tag
+//        memeImageView.image = meme.image
+//        captionLabel.text = meme.caption
     }
 }

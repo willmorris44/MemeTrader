@@ -32,9 +32,16 @@ class LoginViewController: UIViewController {
                 self.presentAlert(1)
                 return
             }
-            let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            let viewController = mainStoryboard.instantiateViewController(withIdentifier: "tabBarController") as! UITabBarController
-            UIApplication.shared.keyWindow?.rootViewController = viewController
+            
+            UserController.shared.getCurrentUser(completion: { (error) in
+                if let error = error {
+                    print("error: \(error)")
+                    return
+                }
+                let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                let viewController = mainStoryboard.instantiateViewController(withIdentifier: "tabBarController") as! UITabBarController
+                UIApplication.shared.keyWindow?.rootViewController = viewController
+            })
         }
     }
     

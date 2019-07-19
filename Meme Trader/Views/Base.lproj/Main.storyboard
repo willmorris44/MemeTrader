@@ -114,40 +114,22 @@ gang hello random words i am typing lmao </string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="KId-CB-0pA">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="681"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <view key="tableHeaderView" contentMode="scaleToFill" id="CRn-ev-p4x">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sorry, no posts to display :(" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0UQ-9l-MVQ">
-                                            <rect key="frame" x="103" y="11.5" width="208" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="RH3-zA-FsE">
-                                            <rect key="frame" x="197" y="12" width="20" height="20"/>
-                                        </activityIndicatorView>
-                                    </subviews>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <constraints>
-                                        <constraint firstItem="0UQ-9l-MVQ" firstAttribute="centerY" secondItem="CRn-ev-p4x" secondAttribute="centerY" id="8Av-WD-3PK"/>
-                                        <constraint firstItem="0UQ-9l-MVQ" firstAttribute="centerX" secondItem="CRn-ev-p4x" secondAttribute="centerX" id="AMM-qG-FD3"/>
-                                        <constraint firstItem="RH3-zA-FsE" firstAttribute="centerY" secondItem="CRn-ev-p4x" secondAttribute="centerY" id="ikM-Do-3C6"/>
-                                        <constraint firstItem="RH3-zA-FsE" firstAttribute="centerX" secondItem="CRn-ev-p4x" secondAttribute="centerX" id="urg-3D-YUW"/>
-                                    </constraints>
-                                </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="memeCell" rowHeight="482" id="Tqw-jd-xB4" customClass="MemeTableViewCell" customModule="Meme_Trader" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="72" width="414" height="482"/>
+                                        <rect key="frame" x="0.0" y="28" width="414" height="482"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Tqw-jd-xB4" id="8ay-Dx-3PS">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="481.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="V9o-KH-g0c">
-                                                    <rect key="frame" x="20" y="11" width="142.5" height="40"/>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ycw-HE-uBE">
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="481.5"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </view>
+                                                <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="V9o-KH-g0c">
+                                                    <rect key="frame" x="20" y="15" width="205" height="40"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultProfilePic" translatesAutoresizingMaskIntoConstraints="NO" id="9Cg-nv-faQ">
                                                             <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
@@ -155,17 +137,17 @@ gang hello random words i am typing lmao </string>
                                                                 <constraint firstAttribute="width" secondItem="9Cg-nv-faQ" secondAttribute="height" multiplier="1:1" id="Ocn-ZS-Sml"/>
                                                             </constraints>
                                                         </imageView>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="T0P-Ds-B8Y">
-                                                            <rect key="frame" x="44" y="2.5" width="98.5" height="35.5"/>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="T0P-Ds-B8Y">
+                                                            <rect key="frame" x="48" y="2.5" width="157" height="35"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rich the Kid" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="if0-Es-4UG">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="77.5" height="17"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="92" height="20.5"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@memeTrader_10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Zk-ED-nte">
-                                                                    <rect key="frame" x="0.0" y="21" width="98.5" height="14.5"/>
+                                                                    <rect key="frame" x="0.0" y="20.5" width="98.5" height="14.5"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -178,10 +160,10 @@ gang hello random words i am typing lmao </string>
                                                     </constraints>
                                                 </stackView>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="v3Z-Yj-6Rx">
-                                                    <rect key="frame" x="0.0" y="100" width="414" height="343.5"/>
+                                                    <rect key="frame" x="0.0" y="114" width="414" height="329.5"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TLG-2P-bkr">
-                                                    <rect key="frame" x="71" y="55" width="323" height="41"/>
+                                                    <rect key="frame" x="45" y="63" width="349" height="41"/>
                                                     <string key="text">The game was on the tick meme the haha 
 gang hello random words i am typing lmao </string>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -189,7 +171,7 @@ gang hello random words i am typing lmao </string>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="EZf-zl-M8A">
-                                                    <rect key="frame" x="241" y="12" width="165" height="22"/>
+                                                    <rect key="frame" x="241" y="16" width="165" height="22"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="129.35" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rPJ-xg-DyR">
                                                             <rect key="frame" x="0.0" y="0.0" width="52" height="22"/>
@@ -292,15 +274,21 @@ gang hello random words i am typing lmao </string>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="sgJ-0W-v7i" secondAttribute="bottom" constant="4" id="1A0-Rp-LTI"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="sgJ-0W-v7i" secondAttribute="trailing" id="2qj-Xx-L74"/>
+                                                <constraint firstItem="ycw-HE-uBE" firstAttribute="leading" secondItem="8ay-Dx-3PS" secondAttribute="leading" id="2wd-qH-dhT"/>
+                                                <constraint firstAttribute="trailing" secondItem="ycw-HE-uBE" secondAttribute="trailing" id="5Gf-4q-g3p"/>
                                                 <constraint firstItem="sgJ-0W-v7i" firstAttribute="leading" secondItem="8ay-Dx-3PS" secondAttribute="leadingMargin" id="6oV-hf-LB8"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="TLG-2P-bkr" secondAttribute="trailing" id="7SI-WC-AfV"/>
-                                                <constraint firstItem="v3Z-Yj-6Rx" firstAttribute="top" secondItem="TLG-2P-bkr" secondAttribute="bottom" constant="4" id="Hcr-rK-aBf"/>
-                                                <constraint firstItem="EZf-zl-M8A" firstAttribute="top" secondItem="8ay-Dx-3PS" secondAttribute="top" constant="12" id="MUO-jz-PmW"/>
+                                                <constraint firstItem="EZf-zl-M8A" firstAttribute="leading" secondItem="V9o-KH-g0c" secondAttribute="trailing" constant="16" id="AIG-eG-kKe"/>
+                                                <constraint firstItem="v3Z-Yj-6Rx" firstAttribute="top" secondItem="TLG-2P-bkr" secondAttribute="bottom" constant="10" id="Hcr-rK-aBf"/>
+                                                <constraint firstItem="EZf-zl-M8A" firstAttribute="top" secondItem="8ay-Dx-3PS" secondAttribute="top" constant="16" id="MUO-jz-PmW"/>
                                                 <constraint firstItem="sgJ-0W-v7i" firstAttribute="top" secondItem="v3Z-Yj-6Rx" secondAttribute="bottom" constant="4" id="QVn-0c-9aM"/>
+                                                <constraint firstItem="ycw-HE-uBE" firstAttribute="top" secondItem="8ay-Dx-3PS" secondAttribute="top" id="VB0-nz-XVv"/>
                                                 <constraint firstItem="V9o-KH-g0c" firstAttribute="leading" secondItem="8ay-Dx-3PS" secondAttribute="leadingMargin" id="Y7Y-Ve-DIJ"/>
+                                                <constraint firstItem="TLG-2P-bkr" firstAttribute="leading" secondItem="8ay-Dx-3PS" secondAttribute="leadingMargin" constant="25" id="c1e-Qc-6GW"/>
                                                 <constraint firstItem="v3Z-Yj-6Rx" firstAttribute="trailing" secondItem="8ay-Dx-3PS" secondAttribute="trailing" id="cdr-Ud-GGp"/>
-                                                <constraint firstItem="V9o-KH-g0c" firstAttribute="top" secondItem="8ay-Dx-3PS" secondAttribute="topMargin" id="fh4-Jr-K9A"/>
-                                                <constraint firstItem="TLG-2P-bkr" firstAttribute="top" secondItem="V9o-KH-g0c" secondAttribute="bottom" constant="4" id="h93-vm-YYA"/>
+                                                <constraint firstItem="V9o-KH-g0c" firstAttribute="top" secondItem="8ay-Dx-3PS" secondAttribute="topMargin" constant="4" id="fh4-Jr-K9A"/>
+                                                <constraint firstAttribute="bottom" secondItem="ycw-HE-uBE" secondAttribute="bottom" id="fwN-By-nvs"/>
+                                                <constraint firstItem="TLG-2P-bkr" firstAttribute="top" secondItem="V9o-KH-g0c" secondAttribute="bottom" constant="8" id="h93-vm-YYA"/>
                                                 <constraint firstItem="v3Z-Yj-6Rx" firstAttribute="leading" secondItem="8ay-Dx-3PS" secondAttribute="leading" id="jxU-0a-VTp"/>
                                                 <constraint firstAttribute="trailing" secondItem="EZf-zl-M8A" secondAttribute="trailing" constant="8" id="s7a-vt-2Nb"/>
                                             </constraints>
@@ -309,7 +297,7 @@ gang hello random words i am typing lmao </string>
                                             <outlet property="buyButton" destination="JXq-vs-Qwj" id="BK6-UC-SQg"/>
                                             <outlet property="captionLabel" destination="TLG-2P-bkr" id="0R3-6b-2V8"/>
                                             <outlet property="coinImageView" destination="cMU-nl-x3j" id="jb1-u3-08c"/>
-                                            <outlet property="downvotesLabel" destination="9XT-RQ-SlI" id="j5v-gV-gzl"/>
+                                            <outlet property="downvoteButton" destination="9XT-RQ-SlI" id="pSp-Ez-kHJ"/>
                                             <outlet property="fundButton" destination="acA-p9-ccm" id="6be-5S-ZOu"/>
                                             <outlet property="memeImageView" destination="v3Z-Yj-6Rx" id="2zC-K7-qdH"/>
                                             <outlet property="percentChangedLabel" destination="uK6-8A-sJO" id="hqt-Yw-Uq8"/>
@@ -335,7 +323,13 @@ gang hello random words i am typing lmao </string>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="84S-34-JqD"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Home" id="nEt-ni-Qwg">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Home" id="dQw-rF-YWh">
+                        <barButtonItem key="leftBarButtonItem" title="Reload" id="dcr-jf-MK2">
+                            <connections>
+                                <action selector="reloadButtonTapped:" destination="Fut-H0-0P8" id="jzd-Lz-Vah"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Item" image="filter" id="glV-zL-ieP">
                             <color key="tintColor" red="0.49048131700000003" green="0.85121196509999997" blue="0.5097460747" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <connections>
@@ -345,10 +339,8 @@ gang hello random words i am typing lmao </string>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="activityIndicator" destination="RH3-zA-FsE" id="HKJ-bM-7NC"/>
-                        <outlet property="noMemeView" destination="CRn-ev-p4x" id="Kua-ru-Q1E"/>
-                        <outlet property="noMemesLabel" destination="0UQ-9l-MVQ" id="0qA-aB-UIm"/>
                         <outlet property="tableView" destination="KId-CB-0pA" id="lc6-nN-xyI"/>
                     </connections>
                 </viewController>

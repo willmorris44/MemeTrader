@@ -10,7 +10,7 @@ import UIKit
 
 class MemeListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    @IBOutlet weak var noMemesLabel: UILabel!
+    @IBOutlet weak var noMemeLabel: UILabel!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var noMemeView: UIView!
     @IBOutlet weak var tableView: UITableView!
@@ -25,11 +25,9 @@ class MemeListViewController: UIViewController, UITableViewDelegate, UITableView
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-        setupUI()
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
+
+    @IBAction func reloadButtonTapped(_ sender: Any) {
         guard let filter = filter else { return }
         MemeController.shared.fetchMemesFromFirestoreWith(filter: filter) { (error) in
             if let error = error {
@@ -37,16 +35,19 @@ class MemeListViewController: UIViewController, UITableViewDelegate, UITableView
                 return
             }
             DispatchQueue.main.async {
+                self.setupUI()
                 self.tableView.reloadData()
+                return
             }
         }
     }
     
     func setupUI() {
-        if let filter = filter, let memeArray = MemeController.shared.memesDic[filter], memeArray.count > 0 {
-            noMemeView.isHidden = true
+        if let filter = filter, let memeArray = MemeController.shared.memesDic[filter], memeArray.count > 0, noMemeView != nil {
+            noMemeView.removeFromSuperview()
+            tableView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 0)
         } else {
-            noMemeView.isHidden = false
+            //self.view.addSubview(noMemeView)
         }
     }
     
@@ -68,6 +69,7 @@ class MemeListViewController: UIViewController, UITableViewDelegate, UITableView
             else { return UITableViewCell() }
         
         let meme = memeArray[indexPath.row]
+        cell?.memeImageView.image = meme.image
         cell?.meme = meme
         
         return cell ?? UITableViewCell()
