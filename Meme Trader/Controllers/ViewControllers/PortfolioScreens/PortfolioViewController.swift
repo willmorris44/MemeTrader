@@ -1,0 +1,29 @@
+//
+//  PortfolioViewController.swift
+//  Meme Trader
+//
+//  Created by Will morris on 7/22/19.
+//  Copyright © 2019 Will morris. All rights reserved.
+//
+
+import UIKit
+
+class PortfolioViewController: UIViewController {
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+    }
+    
+
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+    }
+    */
+
+}

@@ -95,7 +95,7 @@ class UserController {
         }
     }
     
-    func updateUserInfoWith(tag: String, name: String, bio: String, picUrl: String, completion: @escaping (Error?) -> Void) {
+    func createUserInfoWith(tag: String, name: String, bio: String, picUrl: String, completion: @escaping (Error?) -> Void) {
         guard let currentUser = Auth.auth().currentUser else { print(#function); completion(Errors.noCurrentUser); return }
         db.collection("users").document(currentUser.uid).updateData([
             "tag" : tag,
@@ -112,6 +112,22 @@ class UserController {
             "memesDownvoted" : [],
             "commentsUpvoted" : [],
             "commentsDownvoted" : []
+        ]) { (error) in
+            if let error = error {
+                print("There was an error adding user info: \(error) : \(error.localizedDescription) : \(#function)")
+                completion(error)
+                return
+            }
+        }
+        completion(nil)
+    }
+    
+    func updateUserInfoWith(name: String, bio: String, picUrl: String, completion: @escaping (Error?) -> Void) {
+        guard let currentUser = Auth.auth().currentUser else { print(#function); completion(Errors.noCurrentUser); return }
+        db.collection("users").document(currentUser.uid).updateData([
+            "name" : name,
+            "bio" : bio,
+            "picUrl" : picUrl
         ]) { (error) in
             if let error = error {
                 print("There was an error adding user info: \(error) : \(error.localizedDescription) : \(#function)")
@@ -166,15 +182,28 @@ class UserController {
         completion(nil)
     }
     
-    func updateUserInvestmentsWith(investment: String, completion: @escaping (Error?) -> Void) {
+    func updateUserInvestmentsWith(investment: String, delete: Bool, completion: @escaping (Error?) -> Void) {
         guard let currentUser = Auth.auth().currentUser else { print(#function); completion(Errors.noCurrentUser); return }
-        db.collection("users").document(currentUser.uid).updateData([
-            "investments" : FieldValue.arrayUnion([investment])
-        ]) { (error) in
-            if let error = error {
-                print("There was an error updating user investments: \(error) : \(error.localizedDescription) : \(#function)")
-                completion(error)
-                return
+        
+        if delete == false {
+            db.collection("users").document(currentUser.uid).updateData([
+                "investments" : FieldValue.arrayUnion([investment])
+            ]) { (error) in
+                if let error = error {
+                    print("There was an error updating user investments: \(error) : \(error.localizedDescription) : \(#function)")
+                    completion(error)
+                    return
+                }
+            }
+        } else {
+            db.collection("users").document(currentUser.uid).updateData([
+                "investments" : FieldValue.arrayRemove([investment])
+            ]) { (error) in
+                if let error = error {
+                    print("There was an error updating user investments: \(error) : \(error.localizedDescription) : \(#function)")
+                    completion(error)
+                    return
+                }
             }
         }
         completion(nil)
@@ -183,17 +212,17 @@ class UserController {
     func updateUserMoneyWith(cash: Double, portfolioValue: Double, networth: Double, completion: @escaping (Error?) -> Void) {
         guard let currentUser = Auth.auth().currentUser else { print(#function); completion(Errors.noCurrentUser); return }
         db.collection("users").document(currentUser.uid).updateData([
-            "cash" : cash,
-            "portfolio" : portfolioValue,
-            "networth" : networth
+            "cash" : FieldValue.increment(cash),
+            "portfolio" : FieldValue.increment(portfolioValue),
+            "networth" : FieldValue.increment(networth)
         ]) { (error) in
             if let error = error {
                 print("There was an error updating user money: \(error) : \(error.localizedDescription) : \(#function)")
                 completion(error)
                 return
             }
+            completion(nil)
         }
-        completion(nil)
     }
     
     func updateUserMemeVotesWith(meme: Meme, upvoted: Bool?, downvoted: Bool?, completion: @escaping (Error?) -> Void) {

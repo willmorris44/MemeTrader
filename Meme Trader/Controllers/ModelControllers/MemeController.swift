@@ -20,7 +20,7 @@ class MemeController {
     
     let storageRef = UserController.shared.storageRef
     
-    var memesDic: [String: [Meme]] = ["new":[], "hotDaily":[], "hotWeekly":[], "topDaily":[], "topWeekly":[], "topMonthly":[], "topYearly":[], "topAlltime":[]]
+    var memesDic: [String: [Meme]] = ["new":[], "hotDaily":[], "hotWeekly":[], "topDaily":[], "topWeekly":[], "topMonthly":[], "topYearly":[], "topAlltime":[], "currentUserMemes":[]]
     
     // MARK: - Methods
     
@@ -36,7 +36,7 @@ class MemeController {
             "rateOfVotes" : 0.0,
             "comments" : [],
             "numOfComments" : 0.0,
-            "sharesBought" : 0.0,
+            "sharesBought" : 1.0,
             "value" : 0.0
             ], completion: { (error) in
                 if let error = error {
@@ -198,47 +198,54 @@ class MemeController {
         return newImage
     }
     
-//    func uploadMemePicWith(image: UIImage, memeUID: String, completion: @escaping (String?, Error?) -> Void) {
-//        let newImage = resize(image: image)
-//
-//        guard let resizedImage = newImage,
-//            let data = resizedImage.pngData()
-//            else { return }
-//
-//        let ref = storageRef.child("images/meme/\(memeUID).png")
-//        ref.putData(data, metadata: nil) { (_, error) in
-//            if let error = error {
-//                print("Error uploading image: \(error) : \(error.localizedDescription) : \(#function)")
-//                completion(nil, error)
-//                return
-//            }
-//
-//            ref.downloadURL { (url, error) in
-//                if let error = error {
-//                    print("Error getting url: \(error) : \(error.localizedDescription) : \(#function)")
-//                    completion(nil, error)
-//                    return
-//                }
-//
-//                guard let url = url?.absoluteString else { return }
-//                completion(url, nil)
-//            }
-//        }
-//    }
-    
-    func updateMemeSharesWith(cash: Double, for meme: Meme, completion: @escaping (Error?) -> Void) {
-        let sharesBought = cash / meme.value
+    func updateMemeSharesWith(shares: Double, for meme: Meme, completion: @escaping (Error?) -> Void) {
         db.collection("memes").document(meme.memeUID).updateData([
-            "sharesBought" : FieldValue.increment(sharesBought)
+            "sharesBought" : FieldValue.increment(shares)
         ]) { (error) in
             if let error = error {
                 print("There was an error updating meme shares: \(error) : \(error.localizedDescription) : \(#function)")
                 completion(error)
                 return
             }
+            completion(nil)
+            return
         }
-        completion(nil)
-        return
+    }
+    
+    func fetchMemesFor(user: User, completion: @escaping (Error?) -> Void) {
+        memesDic["currentUserMemes"] = []
+        for meme in user.memes {
+            db.collection("memes").document(meme).getDocument { (snapshot, error) in
+                if let error = error {
+                    print("There was an error getting current user memes: \(error) : \(error.localizedDescription) : \(#function)")
+                    completion(error)
+                    return
+                }
+                
+                guard let data = snapshot?.data() else { print(#function); completion(Errors.unwrapData); return }
+                guard let docID = snapshot?.documentID else { print(#function); completion(Errors.unwrapDocumentID); return }
+                guard var meme = Meme(from: data, uid: docID) else { print(#function); completion(Errors.decodeMeme); return }
+                
+                let pathRef = self.storageRef.child("images/meme/\(docID).png")
+                pathRef.getData(maxSize: 1 * 1024 * 1024, completion: { (data, error) in
+                    if let error = error {
+                        print("There was an error downloading images: \(error) : \(error.localizedDescription) : \(#function)")
+                        completion(error)
+                        return
+                    }
+                    
+                    guard let data = data,
+                        let image = UIImage(data: data)
+                        else { return }
+                    
+                    let newImage = self.resize(image: image)
+                    meme.image = newImage
+                    self.memesDic["currentUserMemes"]?.append(meme)
+                    completion(nil)
+                    return
+                })
+            }
+        }
     }
     
     func fetchMemesFromFirestoreWith(filter: String, completion: @escaping (Error?) -> Void) {

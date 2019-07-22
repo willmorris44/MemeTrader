@@ -51,6 +51,8 @@
 		E4864CC722DE4C98001E254D /* FilterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4864CC622DE4C98001E254D /* FilterTableViewController.swift */; };
 		E4864CC922DE612C001E254D /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4864CC822DE612C001E254D /* ProfileViewController.swift */; };
 		E4864CCB22E28C4A001E254D /* ProfilePostsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4864CCA22E28C4A001E254D /* ProfilePostsViewController.swift */; };
+		E4864CCD22E29079001E254D /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4864CCC22E29079001E254D /* EditProfileViewController.swift */; };
+		E4864CCF22E66829001E254D /* PortfolioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4864CCE22E66829001E254D /* PortfolioViewController.swift */; };
 		E4D7DE2022D3D8C8007ADCCA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D7DE1F22D3D8C8007ADCCA /* AppDelegate.swift */; };
 		E4D7DE2522D3D8C8007ADCCA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4D7DE2322D3D8C8007ADCCA /* Main.storyboard */; };
 		E4D7DE2722D3D8C9007ADCCA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4D7DE2622D3D8C9007ADCCA /* Assets.xcassets */; };
@@ -109,6 +111,8 @@
 		E4864CC622DE4C98001E254D /* FilterTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterTableViewController.swift; sourceTree = "<group>"; };
 		E4864CC822DE612C001E254D /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		E4864CCA22E28C4A001E254D /* ProfilePostsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePostsViewController.swift; sourceTree = "<group>"; };
+		E4864CCC22E29079001E254D /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
+		E4864CCE22E66829001E254D /* PortfolioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioViewController.swift; sourceTree = "<group>"; };
 		E4D7DE1C22D3D8C7007ADCCA /* Meme Trader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Meme Trader.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4D7DE1F22D3D8C8007ADCCA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E4D7DE2422D3D8C8007ADCCA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -171,6 +175,7 @@
 			children = (
 				E4864CC822DE612C001E254D /* ProfileViewController.swift */,
 				E4864CCA22E28C4A001E254D /* ProfilePostsViewController.swift */,
+				E4864CCC22E29079001E254D /* EditProfileViewController.swift */,
 			);
 			path = ProfileScreens;
 			sourceTree = "<group>";
@@ -185,6 +190,7 @@
 		E4864C7622D55180001E254D /* PortfolioScreens */ = {
 			isa = PBXGroup;
 			children = (
+				E4864CCE22E66829001E254D /* PortfolioViewController.swift */,
 			);
 			path = PortfolioScreens;
 			sourceTree = "<group>";
@@ -421,6 +427,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4864CCD22E29079001E254D /* EditProfileViewController.swift in Sources */,
+				E4864CCF22E66829001E254D /* PortfolioViewController.swift in Sources */,
 				E4864CCB22E28C4A001E254D /* ProfilePostsViewController.swift in Sources */,
 				E4864CB422DCEFD1001E254D /* AddMemeViewController.swift in Sources */,
 				E4D7DE4122D3F4F5007ADCCA /* CreateAnAtViewController.swift in Sources */,

@@ -60,7 +60,7 @@ class ThisIsYouViewController: UIViewController {
             }
             
             guard let url = url else { return }
-            UserController.shared.updateUserInfoWith(tag: tag, name: name, bio: bio, picUrl: url) { (error) in
+            UserController.shared.createUserInfoWith(tag: tag, name: name, bio: bio, picUrl: url) { (error) in
                 if let error = error {
                     print("There was an error updating the user info: \(error) : \(error.localizedDescription) : \(#function)")
                     self.finishButton.isEnabled = true

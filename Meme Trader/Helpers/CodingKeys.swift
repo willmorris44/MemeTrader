@@ -36,4 +36,7 @@ enum Document {
     static let memeUID = "memeUID"
     static let text = "text"
     static let votes = "votes"
+    static let funded = "amountFunded"
+    static let bought = "amountBought"
+    static let numberOfShares = "numberOfShares"
 }

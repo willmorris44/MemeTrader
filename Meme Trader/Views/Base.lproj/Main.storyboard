@@ -15,11 +15,11 @@
             <objects>
                 <viewController id="o6y-sh-2wC" customClass="MemeDetailViewController" customModule="Meme_Trader" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4L0-3E-I96">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="463"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="JCW-XW-fLP">
-                                <rect key="frame" x="16" y="104" width="382" height="52"/>
+                                <rect key="frame" x="16" y="60" width="382" height="52"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultProfilePic" translatesAutoresizingMaskIntoConstraints="NO" id="3Hg-Gg-siw">
                                         <rect key="frame" x="0.0" y="0.0" width="52" height="52"/>
@@ -47,18 +47,18 @@
                                 </subviews>
                             </stackView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultProfilePic" translatesAutoresizingMaskIntoConstraints="NO" id="IGs-3h-Ikf">
-                                <rect key="frame" x="0.0" y="232" width="414" height="250"/>
+                                <rect key="frame" x="0.0" y="188" width="414" height="250"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QyM-fa-GYO">
-                                <rect key="frame" x="16" y="168" width="382" height="48"/>
+                                <rect key="frame" x="16" y="124" width="382" height="48"/>
                                 <string key="text">The game was on the tick meme the haha 
 gang hello random words i am typing lmao </string>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Kg9-bb-Wyk">
-                                <rect key="frame" x="126.5" y="490" width="161" height="29"/>
+                                <rect key="frame" x="126.5" y="446" width="161" height="29"/>
                                 <segments>
                                     <segment title="Comments"/>
                                     <segment title="Stock"/>
@@ -175,7 +175,7 @@ gang hello random words i am typing lmao </string>
                                                             <rect key="frame" x="0.0" y="113" width="414" height="321"/>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TLG-2P-bkr">
-                                                            <rect key="frame" x="38" y="64" width="360" height="41"/>
+                                                            <rect key="frame" x="38" y="64" width="323" height="41"/>
                                                             <string key="text">The game was on the tick meme the haha 
 gang hello random words i am typing lmao </string>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -215,7 +215,7 @@ gang hello random words i am typing lmao </string>
                                                                     <subviews>
                                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VpI-N3-AJv">
                                                                             <rect key="frame" x="0.0" y="0.0" width="16" height="30"/>
-                                                                            <state key="normal" image="arrow-point-to-right copy"/>
+                                                                            <state key="normal" image="upvoteGreen"/>
                                                                             <connections>
                                                                                 <action selector="upvoteButtonTapped:" destination="Tqw-jd-xB4" eventType="touchUpInside" id="fFp-c3-uZR"/>
                                                                             </connections>
@@ -228,7 +228,7 @@ gang hello random words i am typing lmao </string>
                                                                         </label>
                                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9XT-RQ-SlI">
                                                                             <rect key="frame" x="67.5" y="0.0" width="16" height="30"/>
-                                                                            <state key="normal" image="arrow-point-to-right"/>
+                                                                            <state key="normal" image="downvoteBlack"/>
                                                                             <connections>
                                                                                 <action selector="downvoteButtonTapped:" destination="Tqw-jd-xB4" eventType="touchUpInside" id="EU1-4c-As1"/>
                                                                             </connections>
@@ -251,13 +251,13 @@ gang hello random words i am typing lmao </string>
                                                                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             </state>
                                                                             <connections>
-                                                                                <action selector="buyButtonTapped:" destination="Tqw-jd-xB4" eventType="touchUpInside" id="cY1-ct-omK"/>
+                                                                                <action selector="buyButtonTapped:" destination="Tqw-jd-xB4" eventType="touchUpInside" id="kJd-mN-8MK"/>
                                                                             </connections>
                                                                         </button>
                                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lwb-zG-PUr">
                                                                             <rect key="frame" x="50" y="0.0" width="30" height="30"/>
                                                                             <state key="normal" title="Sell">
-                                                                                <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             </state>
                                                                             <connections>
                                                                                 <action selector="sellButtonTapped:" destination="Tqw-jd-xB4" eventType="touchUpInside" id="ZqY-BC-mzC"/>
@@ -290,7 +290,7 @@ gang hello random words i am typing lmao </string>
                                                         <constraint firstItem="V9o-KH-g0c" firstAttribute="leading" secondItem="ycw-HE-uBE" secondAttribute="leading" constant="16" id="MbE-DE-pF8"/>
                                                         <constraint firstAttribute="trailing" secondItem="v3Z-Yj-6Rx" secondAttribute="trailing" id="P4e-wj-jjD"/>
                                                         <constraint firstItem="sgJ-0W-v7i" firstAttribute="top" secondItem="v3Z-Yj-6Rx" secondAttribute="bottom" constant="4" id="SNv-Cc-3ei"/>
-                                                        <constraint firstAttribute="trailing" secondItem="TLG-2P-bkr" secondAttribute="trailing" constant="16" id="Sim-Sk-Mli"/>
+                                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="TLG-2P-bkr" secondAttribute="trailing" constant="16" id="Sim-Sk-Mli"/>
                                                         <constraint firstAttribute="trailing" secondItem="sgJ-0W-v7i" secondAttribute="trailing" constant="16" id="TKN-KJ-bR3"/>
                                                         <constraint firstItem="v3Z-Yj-6Rx" firstAttribute="leading" secondItem="ycw-HE-uBE" secondAttribute="leading" id="U0i-97-ASB"/>
                                                         <constraint firstItem="v3Z-Yj-6Rx" firstAttribute="top" secondItem="TLG-2P-bkr" secondAttribute="bottom" constant="8" id="URg-aW-AEu"/>
@@ -369,6 +369,7 @@ gang hello random words i am typing lmao </string>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="reloadButton" destination="dcr-jf-MK2" id="e0J-jD-daH"/>
                         <outlet property="tableView" destination="KId-CB-0pA" id="lc6-nN-xyI"/>
                     </connections>
                 </viewController>
@@ -422,6 +423,7 @@ gang hello random words i am typing lmao </string>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="9cK-54-ivU" firstAttribute="centerY" secondItem="hv1-os-pug" secondAttribute="centerY" id="PJF-av-I5P"/>
+                                                <constraint firstItem="hP4-Lz-1qp" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="9cK-54-ivU" secondAttribute="trailing" constant="257" id="Rdt-bV-Bab"/>
                                                 <constraint firstItem="9cK-54-ivU" firstAttribute="leading" secondItem="hv1-os-pug" secondAttribute="leadingMargin" constant="16" id="XV7-gW-ANE"/>
                                                 <constraint firstAttribute="trailing" secondItem="hP4-Lz-1qp" secondAttribute="trailing" constant="32" id="dez-Hf-MpY"/>
                                                 <constraint firstItem="hP4-Lz-1qp" firstAttribute="centerY" secondItem="hv1-os-pug" secondAttribute="centerY" id="uJI-ax-9sH"/>
@@ -453,6 +455,7 @@ gang hello random words i am typing lmao </string>
                                                 </switch>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="oGS-Sf-4Jh" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="YdC-09-0r0" secondAttribute="trailing" constant="253.5" id="Rbo-Dx-VjB"/>
                                                 <constraint firstAttribute="trailing" secondItem="oGS-Sf-4Jh" secondAttribute="trailing" constant="32" id="h3e-7d-rch"/>
                                                 <constraint firstItem="YdC-09-0r0" firstAttribute="centerY" secondItem="vEL-vf-R5w" secondAttribute="centerY" id="j9d-dP-M29"/>
                                                 <constraint firstItem="YdC-09-0r0" firstAttribute="leading" secondItem="vEL-vf-R5w" secondAttribute="leadingMargin" constant="16" id="qmG-go-5ea"/>
@@ -481,6 +484,7 @@ gang hello random words i am typing lmao </string>
                                                 </switch>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="BVM-jL-Pwb" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="n88-tU-yja" secondAttribute="trailing" constant="233" id="1EB-sd-Cik"/>
                                                 <constraint firstAttribute="trailing" secondItem="BVM-jL-Pwb" secondAttribute="trailing" constant="32" id="2ka-b0-ow8"/>
                                                 <constraint firstItem="n88-tU-yja" firstAttribute="leading" secondItem="It3-3n-xZV" secondAttribute="leadingMargin" constant="16" id="ZxR-IA-hcq"/>
                                                 <constraint firstItem="n88-tU-yja" firstAttribute="centerY" secondItem="It3-3n-xZV" secondAttribute="centerY" id="a23-Ih-eXz"/>
@@ -514,6 +518,7 @@ gang hello random words i am typing lmao </string>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="gyQ-er-HRX" firstAttribute="centerY" secondItem="goe-pX-k45" secondAttribute="centerY" id="Hqz-B0-YIE"/>
+                                                <constraint firstItem="gyQ-er-HRX" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="um7-7A-OSF" secondAttribute="trailing" constant="253.5" id="LVh-Sz-PKh"/>
                                                 <constraint firstAttribute="trailing" secondItem="gyQ-er-HRX" secondAttribute="trailing" constant="32" id="TGF-Fo-Mwx"/>
                                                 <constraint firstItem="um7-7A-OSF" firstAttribute="leading" secondItem="goe-pX-k45" secondAttribute="leadingMargin" constant="16" id="lnr-vg-JOu"/>
                                                 <constraint firstItem="um7-7A-OSF" firstAttribute="centerY" secondItem="goe-pX-k45" secondAttribute="centerY" id="uOG-7E-o6E"/>
@@ -544,6 +549,7 @@ gang hello random words i am typing lmao </string>
                                                 <constraint firstItem="LMg-lF-g8Q" firstAttribute="centerY" secondItem="EdC-w7-dFd" secondAttribute="centerY" id="6Lj-wa-32v"/>
                                                 <constraint firstItem="1kw-1E-ALZ" firstAttribute="centerY" secondItem="EdC-w7-dFd" secondAttribute="centerY" id="D1d-Qu-QyQ"/>
                                                 <constraint firstItem="LMg-lF-g8Q" firstAttribute="leading" secondItem="EdC-w7-dFd" secondAttribute="leadingMargin" constant="16" id="Q2G-mI-I0w"/>
+                                                <constraint firstItem="1kw-1E-ALZ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="LMg-lF-g8Q" secondAttribute="trailing" constant="233" id="XVj-EQ-L7V"/>
                                                 <constraint firstAttribute="trailing" secondItem="1kw-1E-ALZ" secondAttribute="trailing" constant="32" id="Yjn-Fd-7be"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -572,6 +578,7 @@ gang hello random words i am typing lmao </string>
                                                 <constraint firstItem="S6O-YP-yQI" firstAttribute="centerY" secondItem="taw-YW-aCF" secondAttribute="centerY" id="5UQ-XN-5vz"/>
                                                 <constraint firstItem="gFq-k5-XZT" firstAttribute="centerY" secondItem="taw-YW-aCF" secondAttribute="centerY" id="Vnf-2H-qAG"/>
                                                 <constraint firstItem="gFq-k5-XZT" firstAttribute="leading" secondItem="taw-YW-aCF" secondAttribute="leadingMargin" constant="16" id="aXt-YH-ORv"/>
+                                                <constraint firstItem="S6O-YP-yQI" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="gFq-k5-XZT" secondAttribute="trailing" constant="226" id="bhr-hl-J5n"/>
                                                 <constraint firstAttribute="trailing" secondItem="S6O-YP-yQI" secondAttribute="trailing" constant="32" id="j6I-EG-cc5"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -600,6 +607,7 @@ gang hello random words i am typing lmao </string>
                                                 <constraint firstItem="elu-O0-KTO" firstAttribute="centerY" secondItem="sYk-vA-Lag" secondAttribute="centerY" id="4Br-4T-KVk"/>
                                                 <constraint firstAttribute="trailing" secondItem="dZF-jA-7xt" secondAttribute="trailing" constant="32" id="Adz-sh-O2h"/>
                                                 <constraint firstItem="dZF-jA-7xt" firstAttribute="centerY" secondItem="sYk-vA-Lag" secondAttribute="centerY" id="Amo-ct-qFZ"/>
+                                                <constraint firstItem="dZF-jA-7xt" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="elu-O0-KTO" secondAttribute="trailing" constant="244" id="NiG-kc-kof"/>
                                                 <constraint firstItem="elu-O0-KTO" firstAttribute="leading" secondItem="sYk-vA-Lag" secondAttribute="leadingMargin" constant="16" id="kpR-hw-SiA"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -626,6 +634,7 @@ gang hello random words i am typing lmao </string>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="Kr4-zM-cB2" firstAttribute="centerY" secondItem="qxc-FT-gVy" secondAttribute="centerY" id="CO7-PU-OGI"/>
+                                                <constraint firstItem="Vd1-PF-vMT" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Kr4-zM-cB2" secondAttribute="trailing" constant="227.5" id="Iwh-xr-O3l"/>
                                                 <constraint firstItem="Vd1-PF-vMT" firstAttribute="centerY" secondItem="qxc-FT-gVy" secondAttribute="centerY" id="KTw-BM-VVz"/>
                                                 <constraint firstItem="Kr4-zM-cB2" firstAttribute="leading" secondItem="qxc-FT-gVy" secondAttribute="leadingMargin" constant="16" id="kw2-SG-5Ct"/>
                                                 <constraint firstAttribute="trailing" secondItem="Vd1-PF-vMT" secondAttribute="trailing" constant="32" id="qcM-ZX-Tzq"/>
@@ -709,20 +718,97 @@ gang hello random words i am typing lmao </string>
             </objects>
             <point key="canvasLocation" x="959" y="1479"/>
         </scene>
-        <!--View Controller-->
+        <!--Edit Profile-->
         <scene sceneID="NZG-C7-aDe">
             <objects>
-                <viewController id="vxo-05-fyz" sceneMemberID="viewController">
+                <viewController id="vxo-05-fyz" customClass="EditProfileViewController" customModule="Meme_Trader" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="glK-Dv-DgX">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aE9-Rl-yf1">
+                                <rect key="frame" x="0.0" y="88" width="414" height="124"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="124" id="7NG-l0-1fA"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jmq-MM-8qV">
+                                <rect key="frame" x="24" y="177" width="75" height="75"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="jmq-MM-8qV" secondAttribute="height" multiplier="1:1" id="3Yy-TW-krP"/>
+                                    <constraint firstAttribute="height" constant="75" id="doI-uG-z2u"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bio" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mvQ-Ow-ZaZ">
+                                <rect key="frame" x="24" y="337" width="35" height="29"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
+                                <color key="textColor" red="0.49048131700000003" green="0.85121196509999997" blue="0.5097460747" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="7iy-aX-wEk">
+                                <rect key="frame" x="109.5" y="337" width="304.5" height="80"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="2QZ-a0-5hE"/>
+                                </constraints>
+                                <color key="textColor" red="0.49048131700000003" green="0.85121196509999997" blue="0.5097460747" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="oia-fs-o9k">
+                                <rect key="frame" x="24" y="284" width="390" height="29"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0xM-NC-ZwD">
+                                        <rect key="frame" x="0.0" y="0.0" width="64.5" height="29"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
+                                        <color key="textColor" red="0.49048131700000003" green="0.85121196509999997" blue="0.5097460747" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter a name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="y9v-9o-BOU" customClass="TextField" customModule="Meme_Trader" customModuleProvider="target">
+                                        <rect key="frame" x="81.5" y="0.0" width="308.5" height="29"/>
+                                        <color key="textColor" red="0.49048131700000003" green="0.85121196509999997" blue="0.5097460747" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="aE9-Rl-yf1" firstAttribute="top" secondItem="H9q-3J-naM" secondAttribute="top" id="04z-Nj-uCr"/>
+                            <constraint firstItem="jmq-MM-8qV" firstAttribute="leading" secondItem="H9q-3J-naM" secondAttribute="leading" constant="24" id="0Ho-GW-kHM"/>
+                            <constraint firstItem="7iy-aX-wEk" firstAttribute="top" secondItem="oia-fs-o9k" secondAttribute="bottom" constant="24" id="JZt-Vd-RNM"/>
+                            <constraint firstItem="jmq-MM-8qV" firstAttribute="top" secondItem="aE9-Rl-yf1" secondAttribute="bottom" constant="-35" id="OOR-Cu-dQ8"/>
+                            <constraint firstItem="mvQ-Ow-ZaZ" firstAttribute="top" secondItem="oia-fs-o9k" secondAttribute="bottom" constant="24" id="ZVu-tt-Cu1"/>
+                            <constraint firstItem="7iy-aX-wEk" firstAttribute="leading" secondItem="y9v-9o-BOU" secondAttribute="leading" constant="4" id="gRD-j4-96D"/>
+                            <constraint firstItem="H9q-3J-naM" firstAttribute="trailing" secondItem="oia-fs-o9k" secondAttribute="trailing" id="hzg-cm-3ZK"/>
+                            <constraint firstItem="aE9-Rl-yf1" firstAttribute="leading" secondItem="glK-Dv-DgX" secondAttribute="leading" id="iJg-Kp-hIO"/>
+                            <constraint firstItem="oia-fs-o9k" firstAttribute="leading" secondItem="H9q-3J-naM" secondAttribute="leading" constant="24" id="iRg-1U-Muj"/>
+                            <constraint firstItem="mvQ-Ow-ZaZ" firstAttribute="leading" secondItem="H9q-3J-naM" secondAttribute="leading" constant="24" id="idW-2j-aQd"/>
+                            <constraint firstItem="H9q-3J-naM" firstAttribute="trailing" secondItem="7iy-aX-wEk" secondAttribute="trailing" id="oCJ-lX-flj"/>
+                            <constraint firstItem="oia-fs-o9k" firstAttribute="top" secondItem="jmq-MM-8qV" secondAttribute="bottom" constant="32" id="z8V-Aj-ac6"/>
+                            <constraint firstItem="H9q-3J-naM" firstAttribute="trailing" secondItem="aE9-Rl-yf1" secondAttribute="trailing" id="zfk-Uz-JBD"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="H9q-3J-naM"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Edit Profile" id="u9f-vB-yzJ">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="5be-D2-IKD">
+                            <connections>
+                                <action selector="saveButtonTapped:" destination="vxo-05-fyz" id="6bj-Lj-6pr"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="aviImageView" destination="jmq-MM-8qV" id="nWs-La-NFF"/>
+                        <outlet property="bioTextView" destination="7iy-aX-wEk" id="G9n-Ys-AD1"/>
+                        <outlet property="headerImageView" destination="aE9-Rl-yf1" id="tkH-SA-n0U"/>
+                        <outlet property="nameTextField" destination="y9v-9o-BOU" id="G8l-Ku-O11"/>
+                        <outlet property="saveButton" destination="5be-D2-IKD" id="Tfl-wQ-k0x"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="whI-YK-9XD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2193" y="1304"/>
+            <point key="canvasLocation" x="2192.753623188406" y="1303.7946428571429"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="xYY-LL-Isz">
@@ -746,7 +832,7 @@ gang hello random words i am typing lmao </string>
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="Gvq-nq-d7P">
-                                <rect key="frame" x="8" y="168" width="114" height="45.5"/>
+                                <rect key="frame" x="8" y="168" width="374" height="45.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="firstBaseline" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="aGr-uj-nda">
                                         <rect key="frame" x="0.0" y="0.0" width="114" height="26.5"/>
@@ -786,7 +872,7 @@ look like and now i have made it two whole lines</string>
                                 <state key="normal" image="Group"/>
                                 <connections>
                                     <action selector="editButtonTapped:" destination="FJz-qg-0Sx" eventType="touchUpInside" id="WUO-wb-1o0"/>
-                                    <segue destination="vxo-05-fyz" kind="show" id="sv4-X5-NND"/>
+                                    <segue destination="vxo-05-fyz" kind="show" identifier="toProfileEdit" id="sv4-X5-NND"/>
                                 </connections>
                             </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="fKn-vb-Ge1">
@@ -805,21 +891,22 @@ look like and now i have made it two whole lines</string>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lX7-Te-8t4">
-                                <rect key="frame" x="0.0" y="350" width="414" height="463"/>
-                                <connections>
-                                    <segue destination="8VH-p4-umG" kind="embed" id="WhA-Rr-iu1"/>
-                                </connections>
-                            </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mOP-EK-rsT">
                                 <rect key="frame" x="0.0" y="350" width="414" height="463"/>
                                 <connections>
                                     <segue destination="Mxa-Zb-4tZ" kind="embed" id="Z4B-o0-XLA"/>
                                 </connections>
                             </containerView>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lX7-Te-8t4">
+                                <rect key="frame" x="0.0" y="350" width="414" height="463"/>
+                                <connections>
+                                    <segue destination="8VH-p4-umG" kind="embed" id="WhA-Rr-iu1"/>
+                                </connections>
+                            </containerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="wW0-hm-dsu" firstAttribute="trailing" secondItem="Gvq-nq-d7P" secondAttribute="trailing" constant="32" id="0lT-Lr-Tql"/>
                             <constraint firstItem="OKB-9t-wDe" firstAttribute="leading" secondItem="wW0-hm-dsu" secondAttribute="leading" id="AfL-21-SY9"/>
                             <constraint firstItem="wW0-hm-dsu" firstAttribute="trailing" secondItem="fKn-vb-Ge1" secondAttribute="trailing" id="EkN-Mj-XnP"/>
                             <constraint firstItem="wW0-hm-dsu" firstAttribute="trailing" secondItem="OKB-9t-wDe" secondAttribute="trailing" id="Fa4-8m-m8N"/>
@@ -852,12 +939,12 @@ look like and now i have made it two whole lines</string>
                     <connections>
                         <outlet property="aviImageView" destination="ms1-MG-9er" id="aYo-yO-o1g"/>
                         <outlet property="bioLabel" destination="LvK-Ul-6oo" id="CB8-h5-1mJ"/>
-                        <outlet property="commentsView" destination="mOP-EK-rsT" id="TEf-jE-He2"/>
+                        <outlet property="commentsView" destination="lX7-Te-8t4" id="m86-gE-1zz"/>
                         <outlet property="followersLabel" destination="c0T-st-nJQ" id="3vl-t3-YNo"/>
                         <outlet property="headerImageView" destination="OKB-9t-wDe" id="DGX-cC-yEJ"/>
                         <outlet property="moneyLabel" destination="w2u-Ne-M8V" id="j2l-9f-xQ8"/>
                         <outlet property="nameLabel" destination="oVn-De-tjZ" id="HVi-H2-DYt"/>
-                        <outlet property="postsView" destination="lX7-Te-8t4" id="iqd-Za-RPB"/>
+                        <outlet property="postsView" destination="mOP-EK-rsT" id="MKU-Pz-Umq"/>
                         <outlet property="segCon" destination="fKn-vb-Ge1" id="X2Z-i7-bls"/>
                         <outlet property="tagLabel" destination="4IE-ct-vDl" id="OVQ-Uq-Akt"/>
                     </connections>
@@ -1017,7 +1104,7 @@ look like and now i have made it two whole lines</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aFR-nJ-fSF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2945" y="797"/>
+            <point key="canvasLocation" x="2945" y="857"/>
         </scene>
         <!--Profile Posts View Controller-->
         <scene sceneID="8ND-tz-twK">
@@ -1027,30 +1114,228 @@ look like and now i have made it two whole lines</string>
                         <rect key="frame" x="0.0" y="0.0" width="414" height="463"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="8px-FS-h8f">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="8px-FS-h8f">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="463"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.87450980389999999" green="0.87450980389999999" blue="0.87450980389999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="postCell" rowHeight="84" id="U6s-dh-g0F">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="84"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="memeCell" rowHeight="522" id="U6s-dh-g0F" customClass="MemeTableViewCell" customModule="Meme_Trader" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="522"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="U6s-dh-g0F" id="AZT-Gq-XEU">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="83.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="522"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tf4-I9-aRB">
-                                                    <rect key="frame" x="25" y="15" width="364" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l6S-hZ-Pv4">
+                                                    <rect key="frame" x="0.0" y="512" width="414" height="10"/>
+                                                    <color key="backgroundColor" red="0.87450980389999999" green="0.87450980389999999" blue="0.87450980389999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="10" id="SZO-vv-kGY"/>
+                                                    </constraints>
+                                                </view>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z5t-2R-FrR">
+                                                    <rect key="frame" x="1" y="161" width="414" height="352"/>
+                                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </view>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hZl-2U-bl6">
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="512"/>
+                                                    <subviews>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="i5m-HP-udu">
+                                                            <rect key="frame" x="16" y="16" width="201" height="40"/>
+                                                            <subviews>
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultProfilePic" translatesAutoresizingMaskIntoConstraints="NO" id="SE8-sR-u6B">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" secondItem="SE8-sR-u6B" secondAttribute="height" multiplier="1:1" id="w7r-N6-4pn"/>
+                                                                    </constraints>
+                                                                </imageView>
+                                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="Oww-41-Vh7">
+                                                                    <rect key="frame" x="48" y="2.5" width="153" height="35"/>
+                                                                    <subviews>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rich the Kid" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gC0-Ub-v8A">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="92" height="20.5"/>
+                                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                            <nil key="textColor"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@memeTrader_10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nZT-gF-aRj">
+                                                                            <rect key="frame" x="0.0" y="20.5" width="98.5" height="14.5"/>
+                                                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                                            <nil key="textColor"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                    </subviews>
+                                                                </stackView>
+                                                            </subviews>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="40" id="fRt-Wo-dtI"/>
+                                                            </constraints>
+                                                        </stackView>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="26" translatesAutoresizingMaskIntoConstraints="NO" id="EUj-tR-YrU">
+                                                            <rect key="frame" x="16" y="478" width="382" height="30"/>
+                                                            <subviews>
+                                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="t9A-qE-sL4">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="83.5" height="30"/>
+                                                                    <subviews>
+                                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8q1-IP-IWZ">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="16" height="30"/>
+                                                                            <state key="normal" image="upvoteGreen"/>
+                                                                            <connections>
+                                                                                <action selector="upvoteButtonTapped:" destination="U6s-dh-g0F" eventType="touchUpInside" id="HKv-fb-XCC"/>
+                                                                            </connections>
+                                                                        </button>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="82.3k" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9DM-eI-qD3">
+                                                                            <rect key="frame" x="20" y="0.0" width="43.5" height="30"/>
+                                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                            <nil key="textColor"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EAh-RF-WRU">
+                                                                            <rect key="frame" x="67.5" y="0.0" width="16" height="30"/>
+                                                                            <state key="normal" image="downvoteBlack"/>
+                                                                            <connections>
+                                                                                <action selector="downvoteButtonTapped:" destination="U6s-dh-g0F" eventType="touchUpInside" id="5X4-ui-gEO"/>
+                                                                            </connections>
+                                                                        </button>
+                                                                    </subviews>
+                                                                </stackView>
+                                                                <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eD9-mS-BLD">
+                                                                    <rect key="frame" x="109.5" y="0.0" width="61.5" height="30"/>
+                                                                    <state key="normal" image="comment"/>
+                                                                    <connections>
+                                                                        <action selector="commentButtonTapped:" destination="U6s-dh-g0F" eventType="touchUpInside" id="hUj-GW-9gD"/>
+                                                                    </connections>
+                                                                </button>
+                                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="lXp-gY-l3C">
+                                                                    <rect key="frame" x="197" y="0.0" width="185" height="30"/>
+                                                                    <subviews>
+                                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="muX-a8-UOO">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                                                            <state key="normal" title="Buy">
+                                                                                <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                            </state>
+                                                                            <connections>
+                                                                                <action selector="buyButtonTapped:" destination="U6s-dh-g0F" eventType="touchUpInside" id="3GO-Xa-mI9"/>
+                                                                            </connections>
+                                                                        </button>
+                                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LGk-ZE-A2v">
+                                                                            <rect key="frame" x="50" y="0.0" width="30" height="30"/>
+                                                                            <state key="normal" title="Sell">
+                                                                                <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                            </state>
+                                                                            <connections>
+                                                                                <action selector="sellButtonTapped:" destination="U6s-dh-g0F" eventType="touchUpInside" id="ARM-3b-fBM"/>
+                                                                            </connections>
+                                                                        </button>
+                                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Its-aL-Lld">
+                                                                            <rect key="frame" x="100" y="0.0" width="35" height="30"/>
+                                                                            <state key="normal" title="Fund">
+                                                                                <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                                            </state>
+                                                                            <connections>
+                                                                                <action selector="fundButtonTapped:" destination="U6s-dh-g0F" eventType="touchUpInside" id="4XJ-Nf-mMW"/>
+                                                                            </connections>
+                                                                        </button>
+                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dollar" translatesAutoresizingMaskIntoConstraints="NO" id="PnU-pY-W1h">
+                                                                            <rect key="frame" x="155" y="0.0" width="30" height="30"/>
+                                                                            <constraints>
+                                                                                <constraint firstAttribute="width" secondItem="PnU-pY-W1h" secondAttribute="height" multiplier="1:1" id="fKI-9R-HnE"/>
+                                                                            </constraints>
+                                                                        </imageView>
+                                                                    </subviews>
+                                                                </stackView>
+                                                            </subviews>
+                                                        </stackView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="13X-fK-N9Z">
+                                                            <rect key="frame" x="38" y="64" width="323" height="41"/>
+                                                            <string key="text">The game was on the tick meme the haha 
+gang hello random words i am typing lmao </string>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="aa6-5j-PTd">
+                                                            <rect key="frame" x="233" y="16" width="165" height="22"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="129.35" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Neb-gA-kCo">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="52" height="22"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <color key="textColor" red="0.49048131700000003" green="0.85121196509999997" blue="0.5097460747" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+2.42%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Jp-UE-DNi">
+                                                                    <rect key="frame" x="64" y="0.0" width="59" height="22"/>
+                                                                    <color key="backgroundColor" red="0.49048131700000003" green="0.85121196509999997" blue="0.5097460747" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jbJ-lk-hlQ">
+                                                                    <rect key="frame" x="135" y="0.0" width="30" height="22"/>
+                                                                    <state key="normal" image="more"/>
+                                                                    <connections>
+                                                                        <action selector="optionsButtonTapped:" destination="U6s-dh-g0F" eventType="touchUpInside" id="1Gl-Ia-Jj0"/>
+                                                                    </connections>
+                                                                </button>
+                                                            </subviews>
+                                                        </stackView>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JFK-ww-jVp">
+                                                            <rect key="frame" x="0.0" y="113" width="414" height="361"/>
+                                                        </imageView>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstItem="EUj-tR-YrU" firstAttribute="leading" secondItem="hZl-2U-bl6" secondAttribute="leading" constant="16" id="20x-1K-g3H"/>
+                                                        <constraint firstItem="i5m-HP-udu" firstAttribute="leading" secondItem="hZl-2U-bl6" secondAttribute="leading" constant="16" id="32K-gT-Jls"/>
+                                                        <constraint firstItem="aa6-5j-PTd" firstAttribute="top" secondItem="hZl-2U-bl6" secondAttribute="top" constant="16" id="6cy-vk-jLS"/>
+                                                        <constraint firstItem="EUj-tR-YrU" firstAttribute="top" secondItem="JFK-ww-jVp" secondAttribute="bottom" constant="4" id="88w-pU-2gb"/>
+                                                        <constraint firstItem="JFK-ww-jVp" firstAttribute="leading" secondItem="hZl-2U-bl6" secondAttribute="leading" id="A7X-Rf-Om3"/>
+                                                        <constraint firstAttribute="trailing" secondItem="aa6-5j-PTd" secondAttribute="trailing" constant="16" id="CHl-Tx-gJQ"/>
+                                                        <constraint firstAttribute="trailing" secondItem="EUj-tR-YrU" secondAttribute="trailing" constant="16" id="IhS-SS-xLY"/>
+                                                        <constraint firstItem="i5m-HP-udu" firstAttribute="top" secondItem="hZl-2U-bl6" secondAttribute="top" constant="16" id="Vaa-CG-YkN"/>
+                                                        <constraint firstAttribute="trailing" secondItem="JFK-ww-jVp" secondAttribute="trailing" id="XNS-vw-Dls"/>
+                                                        <constraint firstAttribute="bottom" secondItem="EUj-tR-YrU" secondAttribute="bottom" constant="4" id="cmi-25-PEL"/>
+                                                        <constraint firstItem="aa6-5j-PTd" firstAttribute="leading" secondItem="i5m-HP-udu" secondAttribute="trailing" constant="16" id="hha-NV-i4N"/>
+                                                        <constraint firstItem="13X-fK-N9Z" firstAttribute="top" secondItem="i5m-HP-udu" secondAttribute="bottom" constant="8" id="i6F-pA-37u"/>
+                                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="13X-fK-N9Z" secondAttribute="trailing" constant="16" id="nhb-A6-Nfd"/>
+                                                        <constraint firstItem="13X-fK-N9Z" firstAttribute="leading" secondItem="hZl-2U-bl6" secondAttribute="leading" constant="38" id="tUt-fJ-JGR"/>
+                                                        <constraint firstItem="JFK-ww-jVp" firstAttribute="top" secondItem="13X-fK-N9Z" secondAttribute="bottom" constant="8" id="yID-qI-mOs"/>
+                                                    </constraints>
+                                                </view>
                                             </subviews>
+                                            <color key="backgroundColor" red="0.87450980389999999" green="0.87450980389999999" blue="0.87450980389999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             <constraints>
-                                                <constraint firstItem="Tf4-I9-aRB" firstAttribute="top" secondItem="AZT-Gq-XEU" secondAttribute="topMargin" constant="4" id="SMe-dn-fJq"/>
-                                                <constraint firstItem="Tf4-I9-aRB" firstAttribute="leading" secondItem="AZT-Gq-XEU" secondAttribute="leadingMargin" constant="5" id="kx4-Wc-qco"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="Tf4-I9-aRB" secondAttribute="trailing" constant="5" id="pk6-4K-qNq"/>
+                                                <constraint firstAttribute="trailing" secondItem="hZl-2U-bl6" secondAttribute="trailing" id="HPo-MI-Njf"/>
+                                                <constraint firstItem="l6S-hZ-Pv4" firstAttribute="top" secondItem="z5t-2R-FrR" secondAttribute="bottom" constant="-1" id="PdP-nX-tiG"/>
+                                                <constraint firstAttribute="bottom" secondItem="l6S-hZ-Pv4" secondAttribute="bottom" id="QqG-ww-0VW"/>
+                                                <constraint firstAttribute="trailing" secondItem="z5t-2R-FrR" secondAttribute="trailing" constant="-1" id="UXe-wh-aDO"/>
+                                                <constraint firstItem="z5t-2R-FrR" firstAttribute="top" secondItem="AZT-Gq-XEU" secondAttribute="topMargin" constant="150" id="VKL-t4-3JC"/>
+                                                <constraint firstItem="l6S-hZ-Pv4" firstAttribute="leading" secondItem="AZT-Gq-XEU" secondAttribute="leading" id="cdH-hW-nP1"/>
+                                                <constraint firstItem="l6S-hZ-Pv4" firstAttribute="top" secondItem="hZl-2U-bl6" secondAttribute="bottom" id="jYg-Be-14w"/>
+                                                <constraint firstItem="hZl-2U-bl6" firstAttribute="top" secondItem="AZT-Gq-XEU" secondAttribute="top" id="ogl-Mg-Uj8"/>
+                                                <constraint firstItem="z5t-2R-FrR" firstAttribute="leading" secondItem="AZT-Gq-XEU" secondAttribute="leading" constant="1" id="uZR-2f-kvS"/>
+                                                <constraint firstItem="hZl-2U-bl6" firstAttribute="leading" secondItem="AZT-Gq-XEU" secondAttribute="leading" id="ulx-4i-dcw"/>
+                                                <constraint firstAttribute="trailing" secondItem="l6S-hZ-Pv4" secondAttribute="trailing" id="yWP-zH-Ou1"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="buyButton" destination="muX-a8-UOO" id="PCN-aw-2S8"/>
+                                            <outlet property="captionLabel" destination="13X-fK-N9Z" id="QCy-1V-EiZ"/>
+                                            <outlet property="coinImageView" destination="PnU-pY-W1h" id="DSb-SF-CII"/>
+                                            <outlet property="downvoteButton" destination="EAh-RF-WRU" id="70p-ml-0Yn"/>
+                                            <outlet property="fundButton" destination="Its-aL-Lld" id="3BY-ru-wAm"/>
+                                            <outlet property="memeImageView" destination="JFK-ww-jVp" id="0Gz-ie-NkY"/>
+                                            <outlet property="percentChangedLabel" destination="6Jp-UE-DNi" id="SJ6-cS-NEf"/>
+                                            <outlet property="profileNameLabel" destination="gC0-Ub-v8A" id="fP0-zz-mtE"/>
+                                            <outlet property="profilePicImageView" destination="SE8-sR-u6B" id="8uv-dv-G0Y"/>
+                                            <outlet property="profileTagLabel" destination="nZT-gF-aRj" id="mkW-lU-fVz"/>
+                                            <outlet property="sellButton" destination="LGk-ZE-A2v" id="hvK-Fi-uwm"/>
+                                            <outlet property="shadow" destination="z5t-2R-FrR" id="NyH-PK-TAC"/>
+                                            <outlet property="stockValueLabel" destination="Neb-gA-kCo" id="dV5-Wc-V73"/>
+                                            <outlet property="upvoteButton" destination="8q1-IP-IWZ" id="ruk-EA-2fh"/>
+                                            <outlet property="view" destination="hZl-2U-bl6" id="mNG-v6-wRq"/>
+                                            <outlet property="votesLabel" destination="9DM-eI-qD3" id="m35-bA-EbD"/>
+                                            <segue destination="o6y-sh-2wC" kind="show" identifier="toMemeDetail" id="dO2-pE-ZVh"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <sections/>
@@ -1177,18 +1462,21 @@ look like and now i have made it two whole lines</string>
     </scenes>
     <resources>
         <image name="Group" width="63" height="29"/>
-        <image name="arrow-point-to-right" width="16" height="9"/>
-        <image name="arrow-point-to-right copy" width="16" height="9"/>
         <image name="briefcase" width="27" height="23"/>
         <image name="comment" width="23" height="21"/>
         <image name="defaultProfilePic" width="250" height="250"/>
         <image name="dollar" width="28" height="28"/>
+        <image name="downvoteBlack" width="16" height="9"/>
         <image name="filter" width="25" height="23"/>
         <image name="house-outline" width="26" height="23"/>
         <image name="more" width="30" height="8"/>
         <image name="plus" width="29" height="29"/>
         <image name="search" width="23" height="23"/>
+        <image name="upvoteGreen" width="16" height="9"/>
         <image name="user" width="23" height="23"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="dO2-pE-ZVh"/>
+    </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.49048131700000003" green="0.85121196509999997" blue="0.5097460747" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
 </document>

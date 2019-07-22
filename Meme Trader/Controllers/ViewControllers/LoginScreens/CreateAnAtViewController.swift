@@ -85,7 +85,8 @@ class CreateAnAtViewController: UIViewController {
         
         if segue.identifier == "toAddInfo" {
             guard let destinationVC = segue.destination as? AddInfoViewController else { return }
-            destinationVC.tag = tagTextField.text
+            let tag = "@\(tagTextField.text!)"
+            destinationVC.tag = tag
         }
     }
 }

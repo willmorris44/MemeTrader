@@ -23,6 +23,14 @@ class LaunchViewController: UIViewController {
                     return
                 }
             }
+            
+            InvestmentController.shared.fetchInvestmentsFromFirestoreFor { (error) in
+                if let error = error {
+                    print(error)
+                    return
+                }
+            }
+            
             MemeController.shared.fetchMemesFromFirestoreWith(filter: filter) { (error) in
                 if let error = error {
                     print("There was an error fetching memes for \(filter): \(error) : \(error.localizedDescription) : \(#function)")
@@ -37,16 +45,4 @@ class LaunchViewController: UIViewController {
         }
 
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

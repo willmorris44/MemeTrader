@@ -11,6 +11,8 @@ import Firebase
 
 protocol MemeTableViewCellDelegate: class {
     func optionButtonTapped()
+    func buyButtonTapped(meme: Meme)
+    func sellButtonTapped()
 }
 
 class MemeTableViewCell: UITableViewCell {
@@ -45,6 +47,8 @@ class MemeTableViewCell: UITableViewCell {
         }
     }
     
+    var investment: Investment?
+    
     func updateViews() {
         guard let meme = meme else { print("Meme couldn't unwrap: \(#function)"); return }
         if let user = UserController.shared.userDic[meme.memeUID] {
@@ -64,20 +68,35 @@ class MemeTableViewCell: UITableViewCell {
     
     func setupUI(user: User) {
         sizeAvi()
+        sellButton.setTitleColor(.lightGray, for: .disabled)
+        fundButton.setTitleColor(.lightGray, for: .disabled)
+        buyButton.setTitleColor(.lightGray, for: .disabled)
     
         guard let meme = meme,
             let currentUser = UserController.currentUser
             else { print("Meme couldn't unwrap: \(#function)"); return }
         
         checkVotes(currentUser, meme)
-        //self.memeImageView.image = meme.image
-        self.profilePicImageView.image = user.avi
-        self.profileNameLabel.text = user.name
-        self.profileTagLabel.text = user.tag
-        self.captionLabel.text = meme.caption
-        self.memeImageView.bounds.size.width = UIScreen.main.bounds.width
-        self.stockValueLabel.text = "\(meme.value)"
-        self.percentChangedLabel.text = "%\(meme.rateOfVotes)"
+        profilePicImageView.image = user.avi
+        profileNameLabel.text = user.name
+        profileTagLabel.text = user.tag
+        captionLabel.text = meme.caption
+        memeImageView.bounds.size.width = UIScreen.main.bounds.width
+        stockValueLabel.text = "\(meme.value)"
+        percentChangedLabel.text = "%\(meme.rateOfVotes)"
+        fundButton.isEnabled = false
+        
+        if investment == nil {
+            sellButton.isEnabled = false
+        } else {
+            sellButton.isEnabled = true
+        }
+        
+        if meme.userUID == currentUser.userUID {
+            buyButton.isEnabled = false
+        } else {
+            buyButton.isEnabled = true
+        }
     }
     
     func checkVotes(_ user: User, _ meme: Meme) {
@@ -109,7 +128,7 @@ class MemeTableViewCell: UITableViewCell {
         } else {
             votes = meme.upvotes - meme.downvotes
         }
-        self.votesLabel.text = "\(votes!)"
+        self.votesLabel.text = "\(Int(votes!))"
     }
     
     func sizeAvi() {
@@ -200,9 +219,12 @@ class MemeTableViewCell: UITableViewCell {
     }
     
     @IBAction func buyButtonTapped(_ sender: UIButton) {
+        guard let meme = meme else { print("Meme couldn't unwrap: \(#function)"); return }
+        delegate?.buyButtonTapped(meme: meme)
     }
     
     @IBAction func sellButtonTapped(_ sender: UIButton) {
+        delegate?.sellButtonTapped()
     }
     
     @IBAction func fundButtonTapped(_ sender: Any) {
