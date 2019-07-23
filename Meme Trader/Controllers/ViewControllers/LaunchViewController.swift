@@ -22,12 +22,12 @@ class LaunchViewController: UIViewController {
                     print(error)
                     return
                 }
-            }
-            
-            InvestmentController.shared.fetchInvestmentsFromFirestoreFor { (error) in
-                if let error = error {
-                    print(error)
-                    return
+                
+                InvestmentController.shared.fetchInvestmentsFromFirestoreFor { (error) in
+                    if let error = error {
+                        print(error)
+                        return
+                    }
                 }
             }
             

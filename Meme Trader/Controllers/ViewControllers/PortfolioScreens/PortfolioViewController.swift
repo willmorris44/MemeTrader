@@ -10,20 +10,22 @@ import UIKit
 
 class PortfolioViewController: UIViewController {
 
+    @IBOutlet weak var segCon: UISegmentedControl!
+    @IBOutlet weak var boughtView: UIView!
+    @IBOutlet weak var fundedView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        fundedView.isHidden = true
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func segConTapped(_ sender: Any) {
+        if segCon.selectedSegmentIndex == 1 {
+            fundedView.isHidden = false
+            boughtView.isHidden = true
+        } else {
+            fundedView.isHidden = true
+            boughtView.isHidden = false
+        }
     }
-    */
-
 }

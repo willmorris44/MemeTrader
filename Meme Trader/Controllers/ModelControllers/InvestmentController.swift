@@ -21,7 +21,7 @@ class InvestmentController {
     
     // MARK: - Methods
     
-    func createInvestmentFor(meme: Meme, funded: Double?, bought: Double?, shares: Double?, completion: @escaping (Error?) -> Void) {
+    func createInvestmentFor(meme: Meme, funded: Double?, bought: Double?, shares: Int?, completion: @escaping (Error?) -> Void) {
         guard let user = UserController.currentUser else { print(#function); completion(Errors.noCurrentUser); return }
         var ref: DocumentReference?
         ref = db.collection("investments").addDocument(data: [
@@ -102,7 +102,7 @@ class InvestmentController {
                         return
                     }
                     
-                    MemeController.shared.updateMemeSharesWith(shares: -investment.numberOfShares, for: meme, completion: { (error) in
+                    MemeController.shared.updateMemeSharesWith(shares: Int(-investment.numberOfShares), for: meme, completion: { (error) in
                         if let error = error {
                             print("There was an error updating meme shares: \(error.localizedDescription) : \(#function)")
                             completion(error)

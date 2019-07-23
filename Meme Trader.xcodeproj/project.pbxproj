@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E43A28CB22E7623B00E0D103 /* BoughtMemesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43A28CA22E7623B00E0D103 /* BoughtMemesViewController.swift */; };
+		E43A28CD22E765E900E0D103 /* InvestmentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43A28CC22E765E900E0D103 /* InvestmentCollectionViewCell.swift */; };
+		E43A28CF22E76C3600E0D103 /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43A28CE22E76C3600E0D103 /* DateHelper.swift */; };
 		E4864C6322D52D5E001E254D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4864C6222D52D5E001E254D /* User.swift */; };
 		E4864C6522D531AE001E254D /* Investment.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4864C6422D531AE001E254D /* Investment.swift */; };
 		E4864C6722D5320C001E254D /* Meme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4864C6622D5320C001E254D /* Meme.swift */; };
@@ -67,6 +70,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E43A28CA22E7623B00E0D103 /* BoughtMemesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoughtMemesViewController.swift; sourceTree = "<group>"; };
+		E43A28CC22E765E900E0D103 /* InvestmentCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvestmentCollectionViewCell.swift; sourceTree = "<group>"; };
+		E43A28CE22E76C3600E0D103 /* DateHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
 		E4864C6222D52D5E001E254D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E4864C6422D531AE001E254D /* Investment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Investment.swift; sourceTree = "<group>"; };
 		E4864C6622D5320C001E254D /* Meme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meme.swift; sourceTree = "<group>"; };
@@ -191,6 +197,8 @@
 			isa = PBXGroup;
 			children = (
 				E4864CCE22E66829001E254D /* PortfolioViewController.swift */,
+				E43A28CA22E7623B00E0D103 /* BoughtMemesViewController.swift */,
+				E43A28CC22E765E900E0D103 /* InvestmentCollectionViewCell.swift */,
 			);
 			path = PortfolioScreens;
 			sourceTree = "<group>";
@@ -201,6 +209,7 @@
 				E4864CA322D64032001E254D /* Errors.swift */,
 				E4864CA722D69271001E254D /* CodingKeys.swift */,
 				E4864CB622DCF41D001E254D /* LoginTextField.swift */,
+				E43A28CE22E76C3600E0D103 /* DateHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -436,10 +445,12 @@
 				E4D7DE3F22D3F4E3007ADCCA /* SignupViewController.swift in Sources */,
 				E4D7DE3D22D3F4AA007ADCCA /* LoginViewController.swift in Sources */,
 				E4864CA422D64032001E254D /* Errors.swift in Sources */,
+				E43A28CF22E76C3600E0D103 /* DateHelper.swift in Sources */,
 				E4864CC922DE612C001E254D /* ProfileViewController.swift in Sources */,
 				E4864C6522D531AE001E254D /* Investment.swift in Sources */,
 				E4864C6322D52D5E001E254D /* User.swift in Sources */,
 				E4864CB722DCF41D001E254D /* LoginTextField.swift in Sources */,
+				E43A28CB22E7623B00E0D103 /* BoughtMemesViewController.swift in Sources */,
 				E4864C6B22D55121001E254D /* UserController.swift in Sources */,
 				E4D7DE2022D3D8C8007ADCCA /* AppDelegate.swift in Sources */,
 				E4864CAA22D6998E001E254D /* FilterController.swift in Sources */,
@@ -447,6 +458,7 @@
 				E4D7DE4522D3F51E007ADCCA /* AddProfilePictureViewController.swift in Sources */,
 				E4864CA822D69271001E254D /* CodingKeys.swift in Sources */,
 				E4864CC122DD3CFD001E254D /* LaunchViewController.swift in Sources */,
+				E43A28CD22E765E900E0D103 /* InvestmentCollectionViewCell.swift in Sources */,
 				E4D7DE4722D3FD36007ADCCA /* ThisIsYouViewController.swift in Sources */,
 				E4864C7122D55140001E254D /* CommentController.swift in Sources */,
 				E4864C6F22D55138001E254D /* MemeController.swift in Sources */,

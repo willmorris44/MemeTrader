@@ -266,7 +266,7 @@ extension MemeListViewController: MemeTableViewCellDelegate {
     @IBAction func buySharesTapped(_ sender: UIButton) {
         guard let meme = meme else { return }
         let bought = Double(slider.value) * meme.value
-        let shares = Double(slider.value)
+        let shares = Int(slider.value)
         InvestmentController.shared.createInvestmentFor(meme: meme, funded: nil, bought: bought, shares: shares) { (error) in
             if let error = error {
                 print("There was an error: \(error)")
